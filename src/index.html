@@ -49,96 +49,146 @@
                 <div class="plan mt-2">
                     <div class="absolute">
                         <div><img class="w-[800px] h-[900px] rounded opacity-70" src="/src/assets/images/stade2.jpg"
-                                alt="">
+                                alt="addPlayer-img">
                         </div>
                         <!-- atack -->
-                        <div class="atack w-800px flex  absolute ml-10 gap-20 top-0">
-                            <div class="player mt-8">
+                        <div class="atack w-800px flex absolute ml-10 gap-20 top-0">
+                            <div class="player mt-8 cursor-pointer" onclick="addPlayer()">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
-                                <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <img class="w-40 h-56" src="/src/assets/images/addPlayer1.png" alt="">
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">LW</div>
                             </div>
-                            <div class="player  ml-20">
+                            <div class="player  ml-20 cursor-pointer" onclick="addPlayer()">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
-                                <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <img class="w-40 h-56" src="/src/assets/images/addPlayer1.png" alt="">
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">ST</div>
                             </div>
-                            <div class="player mt-8 ml-20">
+                            <div class="player mt-8 cursor-pointer ml-20" onclick="addPlayer()">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
-                                <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <img class="w-40 h-56" src="/src/assets/images/addPlayer1.png" alt="">
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">RW</div>
                             </div>
                         </div>
 
                         <!-- mulieu -->
-                        <div class="atack flex  relative ml-32 gap-10 bottom-[630px]">
+                        <div class="atack flex relative ml-32 gap-10 bottom-[630px]">
                             <div class="player">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                                 <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">CM</div>
                             </div>
                             <div class="player mt-5">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                                 <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">CM</div>
                             </div>
                             <div class="player">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                                 <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">CM</div>
                             </div>
                         </div>
                         <!-- defense -->
-                        <div class="atack flex  relative ml-5 gap-5  bottom-[650px]">
-                            <div class="player">
+                        <div class="atack flex  relative ml-5 gap-10  bottom-[650px]">
+                            <div class="player mb-8">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                                 <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">LB</div>
                             </div>
                             <div class="player">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                                 <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">CB</div>
                             </div>
                             <div class="player">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                                 <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">CB</div>
                             </div>
+                            <div class="player mb-8">
+                                <span class="relative left-[46%] top-[120px]">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                </span>
+                                <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">RB</div>
+                            </div>
+                        </div>
+                        <!-- golekiiper -->
+                        <div class="atack flex  relative ml-5 gap-5 left-72  bottom-[690px]">
                             <div class="player">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                                 <img class="w-40 h-56 cursor-pointer" src="/src/assets/images/addPlayer1.png" alt="">
-                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">post</div>
+                                <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">GK</div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div class="addform bg-yellow-100">
+                <div class="addform relative border-2">
                     <form action="post">
-                        <fieldset>
-                            <legend>Create Squad</legend>
-                            <label for=""></label>
+                        <fieldset class="w-96 h-full rounded ">
+                            <legend class="font-bold">Add Player :</legend>
+                            <label for="">name:</label>
+                            <input placeholder="Enter name" type="text"><br>
+                            <label for="">Add Photo:</label>
+                            <input placeholder="Enter photo" type="file"><br>
+                            <label for="position">Enter position</label><br>
+                            <label for="">RW</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">CM</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">RB</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">LB</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">CB</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">CM</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">RB</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">LB</label>
+                            <input placeholder="Enter position" type="radio">
+                            <label for="">GK</label>
+                            <input placeholder="Enter position" type="radio"><br>
+                            <label for="natio">Nationality:</label>
+                            <input placeholder="natio" name="natio"  type="text"><br>
+                            <label for="">Flage:</label>
+                            <input placeholder="Enter Flag" type="file"><br>
+                            <label for="">rating:</label>
+                            <input placeholder="rat" name="rat"  type="number"><br>
+                            <label for="">pace:</label>
+                            <input placeholder="pace" name="pace"  type="number"><br>
+                            <label for="">shooting:</label>
+                            <input placeholder="shoot" name="shoot"  type="number"><br>
+                            <label for="">passing:</label>
+                            <input placeholder="pass" name="pass"  type="number"><br>
+                            <label for="">dribbling:</label>
+                            <input placeholder="pass" name="pass"  type="number"><br>
+                            <label for="">defending:</label>
+                            <input placeholder="def" name="def"  type="number"><br>
+                            <label for="">physical:</label>
+                            <input placeholder="phys" name="phys"  type="number"><br>
                         </fieldset>
                     </form>
                 </div>
