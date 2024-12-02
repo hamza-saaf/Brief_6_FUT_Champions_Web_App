@@ -17,11 +17,15 @@
         /* background-attachment: fixed; */
 
     }
+
+    .modal-content .modal-open {
+        overflow: hidden;
+    }
 </style>
 
-<body class="bg-slate-700/100 m-0 p-0 ">
+<body class="m-0 p-0 ">
     <header>
-        <nav class="upper-bar bg-slate-200">
+        <nav class="upper-bar bg-slate-200 w-100">
             <div class="menu flex items-center mx-4 mt-2 ">
                 <img class="w-20 my-1 rounded" src="/src/assets/images/logopro.jpg" alt="logo">
                 <div class="links">
@@ -40,11 +44,15 @@
         </nav>
     </header>
     <section>
-        <div class="container mx-10">
+        <div class=" ml-5">
             <div class="info">
                 <h1 class="text-3xl font-bold text-black">EA FC 25 Squad Builder</h1>
                 <span>Create EA FC 25 Squads</span>
             </div>
+           <div class="overflow-hidden flex justify-start gap-4 mb-4 mt-2" id="all_players">
+
+           </div>
+           
             <div class="All flex justify-between ">
                 <div class="plan mt-2">
                     <div class="absolute">
@@ -53,7 +61,7 @@
                         </div>
                         <!-- atack -->
                         <div class="atack w-800px flex absolute ml-10 gap-20 top-0">
-                            <div class="player mt-8 cursor-pointer" onclick="addPlayer()">
+                            <div id="openModal1" class="player mt-8 cursor-pointer" onclick="addPlayer()">
                                 <span class="relative left-[46%] top-[130px]">
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </span>
@@ -75,7 +83,6 @@
                                 <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">RW</div>
                             </div>
                         </div>
-
                         <!-- mulieu -->
                         <div class="atack flex relative ml-32 gap-10 bottom-[630px]">
                             <div class="player">
@@ -141,60 +148,88 @@
                                 <div class="w-20 h-5  rounded-lg bg-white relative left-[49px] text-center">GK</div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="modal-content">
+                        <div class="container mx-auto">
+                            <div class="text-center">
+                                <button type="button" id="openModal"
+                                    class="font-bold bg-sky-300 text-black py-2 px-4 rounded hover:bg-sky-700">
+                                    Add-Player
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+                        <div id="myModal" class="fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-50">
+                            <div class="bg-slate-100 rounded-lg shadow-lg w-11/12 sm:w-1/2">
+                                <div class="border-b p-4 flex justify-between items-center">
+                                    <h4 class="text-lg font-semibold">Enter the Informations player</h4>
+                                    <button type="button" id="closeModal" class="text-gray-500 hover:text-gray-700"><i
+                                            class="fa-solid fa-x"></i></button>
+                                </div>
+                                <div class="p-4  max-h-96">
+                                    <div class="addform relative px-3 border-2 mx-3 rounded">
+                                        <form action="post">
+                                            <fieldset class="w-96 h-full ">
+                                                <legend class="font-bold">Add Player:</legend>
+                                                <label for="namePlayer">name:</label>
+                                                <input placeholder="Enter name" id="namePlayer" type="text"><br>
+                                                <label for="PhotoP">Add Photo:</label>
+                                                <input placeholder="Enter photo" id="PhotoP" type="file"><br>
+                                                <label for="position">Enter position :</label><br>
+                                                <select id="position" name="positionSelect">
+                                                <option value="ST">ST</option>
+                                                <option value="CM">CM</option>
+                                                <option value="RB">RB</option>
+                                                <option value="LB">LB</option>
+                                                <option value="CB">CB</option>
+                                                <option value="CM">CM</option>
+                                                <option value="RB">RB</option>
+                                                <option value="LB">LB</option>
+                                                <option value="CL">CL</option>
+                                                <option value="RW">RW</option>
+                                                <option value="GK">GK</option></select><br>
+                                                <label for="nationality">Nationality:</label>
+                                                <input placeholder="natio" id="nationality" name="natio" type="text"><br>
+                                                <label for="flag">Flage:</label>
+                                                <input placeholder="Enter Flag" id="flag" type="file"><br>
+                                                <label for="rating">rating:</label>
+                                                <input placeholder="rat" id="rating" name="rat" type="number"><br>
+                                                <label for="">pace:</label>
+                                                <input placeholder="pace" id="pace" name="pace" type="number"><br>
+                                                <label for="shooting">shooting:</label>
+                                                <input placeholder="shoot" id="shooting" name="shoot" type="number"><br>
+                                                <label for="passing">passing:</label>
+                                                <input placeholder="pass" id="passing" name="pass" type="number"><br>
+                                                <label for="dribbling">dribbling:</label>
+                                                <input placeholder="pass" id="dribbling" name="pass" type="number"><br>
+                                                <label for="defending">defending:</label>
+                                                <input placeholder="def" id="defending" name="def" type="number"><br>
+                                                <label for="physical">physical:</label>
+                                                <input placeholder="phys" id="physical" name="phys" type="number"><br>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="border-t p-4 flex justify-end space-x-4">
+                                    <button type="button" id="closeModalFooter"
+                                        class="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">
+                                        Close
+                                    </button>
+                                    <button type="button" onclick="saveChanges()"
+                                        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Save
+                                        changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="add_players">
 
                     </div>
                 </div>
-                <div class="addform relative border-2">
-                    <form action="post">
-                        <fieldset class="w-96 h-full rounded ">
-                            <legend class="font-bold">Add Player :</legend>
-                            <label for="">name:</label>
-                            <input placeholder="Enter name" type="text"><br>
-                            <label for="">Add Photo:</label>
-                            <input placeholder="Enter photo" type="file"><br>
-                            <label for="position">Enter position</label><br>
-                            <label for="">RW</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">CM</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">RB</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">LB</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">CB</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">CM</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">RB</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">LB</label>
-                            <input placeholder="Enter position" type="radio">
-                            <label for="">GK</label>
-                            <input placeholder="Enter position" type="radio"><br>
-                            <label for="natio">Nationality:</label>
-                            <input placeholder="natio" name="natio"  type="text"><br>
-                            <label for="">Flage:</label>
-                            <input placeholder="Enter Flag" type="file"><br>
-                            <label for="">rating:</label>
-                            <input placeholder="rat" name="rat"  type="number"><br>
-                            <label for="">pace:</label>
-                            <input placeholder="pace" name="pace"  type="number"><br>
-                            <label for="">shooting:</label>
-                            <input placeholder="shoot" name="shoot"  type="number"><br>
-                            <label for="">passing:</label>
-                            <input placeholder="pass" name="pass"  type="number"><br>
-                            <label for="">dribbling:</label>
-                            <input placeholder="pass" name="pass"  type="number"><br>
-                            <label for="">defending:</label>
-                            <input placeholder="def" name="def"  type="number"><br>
-                            <label for="">physical:</label>
-                            <input placeholder="phys" name="phys"  type="number"><br>
-                        </fieldset>
-                    </form>
-                </div>
             </div>
         </div>
-
     </section>
     <footer>
 
