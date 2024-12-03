@@ -51,7 +51,6 @@ function filterPlayers() {
   );
 
   displayPlayers(filteredplayers);
- 
 }
 // open_Modal
 const openModalBtn = document.getElementById("openModal");
@@ -63,13 +62,12 @@ const modal = document.getElementById("myModal");
 const body = document.body;
 openModalBtn.addEventListener("click", () => {
   modal.classList.remove("hidden");
-  body.classList.add('modal-open');
+  body.classList.add("modal-open");
 });
 closeModalBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     modal.classList.add("hidden");
     body.classList.remove("modal-open");
-
   })
 );
 
@@ -128,44 +126,43 @@ function saveChanges() {
                         <div class="w-[25px]">PHY ${physical}</div><br>
                         </div>`;
 }
-                    // the input validation
-                    function validateInput(id, regex, errorId) {
-                        const input = document.getElementById(id);
-                        const errorElement = document.getElementById(errorId);
-                        if (regex.test(input.value.trim())) {
-                            errorElement.classList.add("hidden");  
-                        } else {
-                            errorElement.classList.remove("hidden"); 
-                            
-                        }
-                    }
-                    function validateName() {
-                        const nameRegex = /^[A-Za-z\s]{2,}$/;
-                        return validateInput("namePlayer", nameRegex, "NameError");
-                      }
-                    function validationPosition(){
-                        const positionRegex = /^(GK|CB|LB|RB|CD|CM|AM|LM|RM|LW|RW|ST|CF)$/;
-                        return validateInput("position", positionRegex, "PositionError");
-                    }
-                    function validationNationalty(){
-                        const NationRegex = /^[A-Za-z\s]{2,}$/;
-                        return validateInput("nationality", NationRegex, "natioError");
-                    }
-                    function AlertForm(event) {
-                        event.preventDefault();
-                        const isValid = validateName() && validationPosition() && validationNationalty;
-                      
-                        if (isValid) {
-                            alert("Form submitted successfully!");
-                        } else {
-                            alert("Please fix errors in the form.");
-                        }
-                      }
+// the input validation
+function validateInput(id, regex, errorId) {
+  const input = document.getElementById(id);
+  const errorElement = document.getElementById(errorId);
+  if (regex.test(input.value.trim())) {
+    errorElement.classList.add("hidden");
+    
 
+  } else {
+    errorElement.classList.remove("hidden");
+  }
+}
+function validateName() {
+  const nameRegex = /^[A-Za-z\s]{2,}$/;
+  return validateInput("namePlayer", nameRegex, "NameError");
+}
+function validationPosition() {
+  const positionRegex = /^(GK|CB|LB|RB|CD|CM|AM|LM|RM|LW|RW|ST|CF)$/;
+  return validateInput("position", positionRegex, "PositionError");
+}
+function validationNationalty() {
+  const NationRegex = /^[A-Za-z\s]{2,}$/;
+  return validateInput("nationality", NationRegex, "natioError");
+}
+function AlertForm(event) {
+  event.preventDefault();
+  const isValid =
+    validateName() && validationPosition() && validationNationalty;
 
-function deletPlayers() {
-    const playerCard = document.getElementById("playerCard");
-    playerCard.remove();
-
+  if (isValid) {
+    alert("Form submitted successfully!");
+  } else {
+    alert("Please fix errors in the form.");
+  }
 }
 
+function deletPlayers() {
+  const playerCard = document.getElementById("playerCard");
+  playerCard.remove();
+}
