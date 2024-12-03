@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link rel="stylesheet" href="/src/assets/styles/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="upper-bar bg-slate-200 ">
+            <div class="flex flex-wrap items-center mx-4 mt-2 ">
+                <img class="w-20 my-1 rounded" src="/src/assets/images/logopro.jpg" alt="logo">
+                <div class="links">
+                    <ul class="flex ml-10 font-bold">
+                        <li class="m-5"><a href="/src/assets/pages/players.html">Players</a></li>
+                        <li class="m-5"><a href="/src/index.html">Squad Builder</a></li>
+                        <li class="m-5"><a href="C">Squads</a></li>
+                        <li class="m-5"><a href="D">Market</a></li>
+
+                    </ul>
+                </div>
+                <div class="flex ml-32">
+                    <div class=" mr-1 rounded">
+                        <button class="bg-sky-300 p-1 rounded " onclick="filterPlayers()" id="searshBtn"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <input class="h-8 outline-none rounded" id="searchBar" placeholder="  Search for Player..."
+                        type="text">
+                    <button class="h-8 rounded font-bold ml-64 bg-sky-300 p-2" type="button">Sign in</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class=" ml-5">
+            <div class="info  text-white">
+                <h1 class="text-3xl font-bold">EA FC 25 All Squad</h1>
+                <span>All stored Squads EA FC 25</span>
+            </div>
+            <div class="overflow-hidden flex justify-center flex-wrap gap-8 mb-4 mt-2" id="all_players">
+
+            </div>
+        </div>
+    </section>
+    <script src="/src/assets/js/main.js"></script>
+
+</body>
+
+</html>

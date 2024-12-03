@@ -6,40 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FUT Champions</title>
     <link rel="stylesheet" href="./output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link rel="stylesheet" href="/src/assets/styles/style.css">
 </head>
-<style>
-    body {
-        background-image: url(/src/assets/images/stadium.jpg);
-        background-size: 1500px 800px;
-        /* background-attachment: fixed; */
-
-    }
-
-    .modal-content .modal-open {
-        overflow: hidden;
-    }
-</style>
 
 <body class="m-0 p-0 ">
     <header>
-        <nav class="upper-bar bg-slate-200 w-100">
-            <div class="menu flex items-center mx-4 mt-2 ">
+        <nav class="upper-bar bg-slate-200 ">
+            <div class="flex flex-wrap items-center mx-4 mt-2 ">
                 <img class="w-20 my-1 rounded" src="/src/assets/images/logopro.jpg" alt="logo">
                 <div class="links">
                     <ul class="flex ml-10 font-bold">
-                        <li class="m-5"><a href="A">Players</a></li>
-                        <li class="m-5"><a href="B">Squad Builder</a></li>
+                        <li class="m-5"><a href="/src/assets/pages/players.html">Players</a></li>
+                        <li class="m-5"><a href="/src/index.html">Squad Builder</a></li>
                         <li class="m-5"><a href="C">Squads</a></li>
                         <li class="m-5"><a href="D">Market</a></li>
 
                     </ul>
                 </div>
-                <input class="h-8 min-w-max rounded" placeholder="  Search for Player..." type="text">
-
-                <button class="relative left-96 rounded font-bold bg-sky-300 p-2" type="button">Sign in</button>
+                <div class="flex ml-32">
+                    <div class=" mr-1 rounded">
+                    <button class="bg-sky-300 p-1 rounded " onclick="filterPlayers()" id="searshBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <input class="h-8 outline-none rounded" id="searchBar" placeholder="  Search for Player..." type="text">
+                    <button  class="h-8 rounded font-bold ml-64 bg-sky-300 p-2" type="button">Sign in</button>
+                </div>
             </div>
         </nav>
     </header>
@@ -49,11 +40,92 @@
                 <h1 class="text-3xl font-bold text-black">EA FC 25 Squad Builder</h1>
                 <span>Create EA FC 25 Squads</span>
             </div>
-           <div class="overflow-hidden flex justify-start gap-4 mb-4 mt-2" id="all_players">
+            <div class="overflow-hidden flex justify-start gap-4 mb-4 mt-2" id="all_players">
 
-           </div>
-           
-            <div class="All flex justify-between ">
+            </div>
+            <div class="important-Content  justify-between gap-0 ">
+                <!-- Modal -->
+                <div class="modal-content">
+                    <div><button type="button" id="openModal"
+                        class="font-bold bg-sky-300 text-black py-2 px-4 rounded hover:bg-sky-700">
+                        Add-Player
+                    </button>
+                    <select class="font-bold bg-sky-300 text-black py-2 px-4 outline-none rounded hover:bg-sky-500" name="plan" id="plan1">
+                        <option value="">4-3-3</option>
+                        <option value="">4-4-2</option>
+                    </select></div>
+                    
+                        <div class="flex justify-start flex-wrap mt-3 gap-3" id="add_players">
+                        </div>
+                    
+                    <div id="myModal"
+                        class="fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="bg-slate-100 rounded-lg shadow-lg w-11/12 sm:w-1/2">
+                            <div class="border-b p-4 flex justify-between items-center">
+                                <h4 class="text-lg font-semibold">Enter the Informations player</h4>
+                                <button type="button" id="closeModal" class="text-gray-500 hover:text-gray-700"><i
+                                        class="fa-solid fa-x"></i></button>
+                            </div>
+                            <div class="p-4  max-h-96">
+                                <div class="addform relative px-3 border-2 mx-3 rounded">
+                                    <form action="post" onsubmit="">
+                                        <fieldset class="w-96 h-full ">
+                                            <legend class="font-bold">Add Player:</legend>
+                                            <label for="namePlayer">name:</label>
+                                            <input placeholder="Enter name" id="namePlayer" type="text"><span class="text-red-600 ml-2 hidden">name non Valide !!!</span><br>
+                                            <label for="PhotoP">Add Photo:</label>
+                                            <input placeholder="Enter photo" id="PhotoP" type="file"><br>
+                                            <label for="position">Enter position :</label>
+                                            <select id="position" name="positionSelect">
+                                                <option value="ST">ST</option>
+                                                <option value="CM">CM</option>
+                                                <option value="RB">RB</option>
+                                                <option value="LB">LB</option>
+                                                <option value="CB">CB</option>
+                                                <option value="CM">CM</option>
+                                                <option value="RB">RB</option>
+                                                <option value="LB">LB</option>
+                                                <option value="CL">CL</option>
+                                                <option value="RW">RW</option>
+                                                <option value="GK">GK</option>
+                                            </select><span class="text-red-600 ml-2 hidden">Position Non Valide !!!</span><br>
+                                            <label for="nationality">Nationality:</label>
+                                            <input placeholder="natio" id="nationality" name="natio" type="text"><span class="text-red-600 ml-2 hidden">Nationality Non Valide !!!</span></br>
+                                            <label for="flag">Flage:</label>
+                                            <input placeholder="Enter Flag" id="flag" type="file"><br>
+                                            <label for="logo">Logo:</label>
+                                            <input placeholder="Enter Logo" id="logo" type="file"><br>
+                                            <label for="rating">rating:</label>
+                                            <input placeholder="rat" id="rating" name="rat" minlength="10" type="number"><br>
+                                            <label for="">pace:</label>
+                                            <input placeholder="pace" id="pace" name="pace" type="number"><br>
+                                            <label for="shooting">shooting:</label>
+                                            <input placeholder="shoot" id="shooting" name="shoot" type="number"><br>
+                                            <label for="passing">passing:</label>
+                                            <input placeholder="pass" id="passing" name="pass" type="number"><br>
+                                            <label for="dribbling">dribbling:</label>
+                                            <input placeholder="pass" id="dribbling" name="pass" type="number"><br>
+                                            <label for="defending">defending:</label>
+                                            <input placeholder="def" id="defending" name="def" type="number"><br>
+                                            <label for="physical">physical:</label>
+                                            <input placeholder="phys" id="physical" name="phys" type="number"><br>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="border-t p-4 flex justify-end space-x-4">
+                                <button type="button" id="closeModalFooter"
+                                    class="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">
+                                    Close
+                                </button>
+                                <button type="submit" onclick="saveChanges()"
+                                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Save
+                                    changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- stadium -->
                 <div class="plan mt-2">
                     <div class="absolute">
                         <div><img class="w-[800px] h-[900px] rounded opacity-70" src="/src/assets/images/stade2.jpg"
@@ -150,91 +222,8 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="modal-content">
-                        <div class="container mx-auto">
-                            <div class="text-center">
-                                <button type="button" id="openModal"
-                                    class="font-bold bg-sky-300 text-black py-2 px-4 rounded hover:bg-sky-700">
-                                    Add-Player
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Modal -->
-                        <div id="myModal" class="fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-50">
-                            <div class="bg-slate-100 rounded-lg shadow-lg w-11/12 sm:w-1/2">
-                                <div class="border-b p-4 flex justify-between items-center">
-                                    <h4 class="text-lg font-semibold">Enter the Informations player</h4>
-                                    <button type="button" id="closeModal" class="text-gray-500 hover:text-gray-700"><i
-                                            class="fa-solid fa-x"></i></button>
-                                </div>
-                                <div class="p-4  max-h-96">
-                                    <div class="addform relative px-3 border-2 mx-3 rounded">
-                                        <form action="post">
-                                            <fieldset class="w-96 h-full ">
-                                                <legend class="font-bold">Add Player:</legend>
-                                                <label for="namePlayer">name:</label>
-                                                <input placeholder="Enter name" id="namePlayer" type="text"><br>
-                                                <label for="PhotoP">Add Photo:</label>
-                                                <input placeholder="Enter photo" id="PhotoP" type="file"><br>
-                                                <label for="position">Enter position :</label><br>
-                                                <select id="position" name="positionSelect">
-                                                <option value="ST">ST</option>
-                                                <option value="CM">CM</option>
-                                                <option value="RB">RB</option>
-                                                <option value="LB">LB</option>
-                                                <option value="CB">CB</option>
-                                                <option value="CM">CM</option>
-                                                <option value="RB">RB</option>
-                                                <option value="LB">LB</option>
-                                                <option value="CL">CL</option>
-                                                <option value="RW">RW</option>
-                                                <option value="GK">GK</option></select><br>
-                                                <label for="nationality">Nationality:</label>
-                                                <input placeholder="natio" id="nationality" name="natio" type="text"><br>
-                                                <label for="flag">Flage:</label>
-                                                <input placeholder="Enter Flag" id="flag" type="file"><br>
-                                                <label for="rating">rating:</label>
-                                                <input placeholder="rat" id="rating" name="rat" type="number"><br>
-                                                <label for="">pace:</label>
-                                                <input placeholder="pace" id="pace" name="pace" type="number"><br>
-                                                <label for="shooting">shooting:</label>
-                                                <input placeholder="shoot" id="shooting" name="shoot" type="number"><br>
-                                                <label for="passing">passing:</label>
-                                                <input placeholder="pass" id="passing" name="pass" type="number"><br>
-                                                <label for="dribbling">dribbling:</label>
-                                                <input placeholder="pass" id="dribbling" name="pass" type="number"><br>
-                                                <label for="defending">defending:</label>
-                                                <input placeholder="def" id="defending" name="def" type="number"><br>
-                                                <label for="physical">physical:</label>
-                                                <input placeholder="phys" id="physical" name="phys" type="number"><br>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="border-t p-4 flex justify-end space-x-4">
-                                    <button type="button" id="closeModalFooter"
-                                        class="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">
-                                        Close
-                                    </button>
-                                    <button type="button" onclick="saveChanges()"
-                                        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Save
-                                        changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="add_players">
-
-                    </div>
-                </div>
             </div>
-        </div>
     </section>
-    <footer>
-
-    </footer>
-
     <script src="/src/assets/js/main.js"></script>
 </body>
 

@@ -1,0 +1,8 @@
+body {
+    background-image: url(/src/assets/images/stadium.jpg);
+    background-size: 1500px 800px;
+
+}
+.modal-content .modal-open {
+    overflow: hidden;
+}
