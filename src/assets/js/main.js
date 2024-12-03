@@ -53,7 +53,6 @@ function filterPlayers() {
   displayPlayers(filteredplayers);
  
 }
-console.log(filterPlayers)
 // open_Modal
 const openModalBtn = document.getElementById("openModal");
 const closeModalBtns = [
@@ -118,7 +117,7 @@ function saveChanges() {
                         <h4 class="name  text-white">${namePlayer}</h4>
                         <img class="inline" src="${flag}" alt="flag"><img class="w-10 inline" src="${logo}" alt="logo-Team">
                         </div>
-                        <span class="absolute font-bold top-[2px] left-3 p-2 border border-black rounded-full">${positionSelect}</span>
+                        <div class="absolute font-bold top-[2px] left-3 p-2 border border-black rounded-full">${positionSelect}</div>
                         <div class="text-sm flex text-center gap-2 ml-2">
                         <div class="w-[25px]">RAT ${rating}</div>
                         <div class="w-[25px]">PAC ${pace}</div>
@@ -129,6 +128,41 @@ function saveChanges() {
                         <div class="w-[25px]">PHY ${physical}</div><br>
                         </div>`;
 }
+                    // the input validation
+                    function validateInput(id, regex, errorId) {
+                        const input = document.getElementById(id);
+                        const errorElement = document.getElementById(errorId);
+                        if (regex.test(input.value.trim())) {
+                            errorElement.classList.add("hidden");  
+                        } else {
+                            errorElement.classList.remove("hidden"); 
+                            
+                        }
+                    }
+                    function validateName() {
+                        const nameRegex = /^[A-Za-z\s]{2,}$/;
+                        return validateInput("namePlayer", nameRegex, "NameError");
+                      }
+                    function validationPosition(){
+                        const positionRegex = /^(GK|CB|LB|RB|CD|CM|AM|LM|RM|LW|RW|ST|CF)$/;
+                        return validateInput("position", positionRegex, "PositionError");
+                    }
+                    function validationNationalty(){
+                        const NationRegex = /^[A-Za-z\s]{2,}$/;
+                        return validateInput("nationality", NationRegex, "natioError");
+                    }
+                    function AlertForm(event) {
+                        event.preventDefault();
+                        const isValid = validateName() && validationPosition() && validationNationalty;
+                      
+                        if (isValid) {
+                            alert("Form submitted successfully!");
+                        } else {
+                            alert("Please fix errors in the form.");
+                        }
+                      }
+
+
 function deletPlayers() {
     const playerCard = document.getElementById("playerCard");
     playerCard.remove();

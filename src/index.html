@@ -59,7 +59,7 @@
                         </div>
                     
                     <div id="myModal"
-                        class="fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-50">
+                        class="fixed inset-0 z-50   flex items-center justify-center bg-black bg-opacity-50">
                         <div class="bg-slate-100 rounded-lg shadow-lg w-11/12 sm:w-1/2">
                             <div class="border-b p-4 flex justify-between items-center">
                                 <h4 class="text-lg font-semibold">Enter the Informations player</h4>
@@ -68,15 +68,16 @@
                             </div>
                             <div class="p-4  max-h-96">
                                 <div class="addform relative px-3 border-2 mx-3 rounded">
-                                    <form action="post" onsubmit="">
+                                    <form action="post" onsubmit="AlertForm(event)">
                                         <fieldset class="w-96 h-full ">
                                             <legend class="font-bold">Add Player:</legend>
                                             <label for="namePlayer">name:</label>
-                                            <input placeholder="Enter name" id="namePlayer" type="text"><span class="text-red-600 ml-2 hidden">name non Valide !!!</span><br>
+                                            <input placeholder="Enter name" onchange="validateName()" id="namePlayer" type="text"><span id="NameError" class="text-red-600 ml-2 hidden">name non Valide !!!</span><br>
                                             <label for="PhotoP">Add Photo:</label>
                                             <input placeholder="Enter photo" id="PhotoP" type="file"><br>
                                             <label for="position">Enter position :</label>
                                             <select id="position" name="positionSelect">
+                                                <option value=""></option>
                                                 <option value="ST">ST</option>
                                                 <option value="CM">CM</option>
                                                 <option value="RB">RB</option>
@@ -88,37 +89,37 @@
                                                 <option value="CL">CL</option>
                                                 <option value="RW">RW</option>
                                                 <option value="GK">GK</option>
-                                            </select><span class="text-red-600 ml-2 hidden">Position Non Valide !!!</span><br>
+                                            </select><span id="PositionError" class="text-red-600 ml-2 hidden">Position Non Valide !!!</span><br>
                                             <label for="nationality">Nationality:</label>
-                                            <input placeholder="natio" id="nationality" name="natio" type="text"><span class="text-red-600 ml-2 hidden">Nationality Non Valide !!!</span></br>
+                                            <input placeholder="natio" id="nationality" name="natio" type="text"><br>
+                                            <span id="natioError" class=" text-red-600 ml-2 hidden">Nationality Non Valide !!!!</span></br>
                                             <label for="flag">Flage:</label>
                                             <input placeholder="Enter Flag" id="flag" type="file"><br>
                                             <label for="logo">Logo:</label>
                                             <input placeholder="Enter Logo" id="logo" type="file"><br>
                                             <label for="rating">rating:</label>
-                                            <input placeholder="rat" id="rating" name="rat" minlength="10" type="number"><br>
+                                            <input placeholder="rat" id="rating" name="rat" value="10" min="10" max="99" type="number" ><br>
                                             <label for="">pace:</label>
-                                            <input placeholder="pace" id="pace" name="pace" type="number"><br>
+                                            <input placeholder="pace" id="pace" name="pace" min="10" max="99" type="number"><br>
                                             <label for="shooting">shooting:</label>
-                                            <input placeholder="shoot" id="shooting" name="shoot" type="number"><br>
+                                            <input placeholder="shoot" id="shooting" name="shoot" min="10" max="99" type="number"><br>
                                             <label for="passing">passing:</label>
-                                            <input placeholder="pass" id="passing" name="pass" type="number"><br>
+                                            <input placeholder="pass" id="passing" name="pass" min="10" max="99" type="number"><br>
                                             <label for="dribbling">dribbling:</label>
-                                            <input placeholder="pass" id="dribbling" name="pass" type="number"><br>
+                                            <input placeholder="pass" id="dribbling" name="pass" min="10" max="99" type="number"><br>
                                             <label for="defending">defending:</label>
-                                            <input placeholder="def" id="defending" name="def" type="number"><br>
+                                            <input placeholder="def" id="defending" name="def" min="10" max="99" type="number"><br>
                                             <label for="physical">physical:</label>
-                                            <input placeholder="phys" id="physical" name="phys" type="number"><br>
+                                            <input placeholder="phys" id="physical" name="phys" min="10" max="99" type="number"><br>
                                         </fieldset>
                                     </form>
                                 </div>
                             </div>
                             <div class="border-t p-4 flex justify-end space-x-4">
-                                <button type="button" id="closeModalFooter"
-                                    class="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">
+                                <button type="button" id="closeModalFooter" class="bg-gray-200 text-gray-700 py-2 px-4 rounded hover:bg-gray-300">
                                     Close
                                 </button>
-                                <button type="submit" onclick="saveChanges()"
+                                <button type="submit" onclick="saveChanges(); validateName();validationPosition();validationNationalty()"
                                     class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Save
                                     changes</button>
                             </div>
